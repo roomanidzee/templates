@@ -7,7 +7,7 @@ project.extra.set("versions", mapOf(
         "slf4j" to "1.7.26",
         "jjwt" to "0.9.1",
         "jaxb" to "2.3.1",
-        "mapstruct" to "1.3.0.Final",
+        "mapstruct" to "1.3.0.Beta2",
         "spring" to "5.1.8.RELEASE"
 ))
 
@@ -40,6 +40,7 @@ tasks.bootJar {
 repositories {
     mavenCentral()
     mavenLocal()
+    maven(url="https://jitpack.io")
     gradlePluginPortal()
 }
 
@@ -57,8 +58,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${versions["kotlin"]}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions["kotlin"]}")
 
+    implementation("com.github.pozo.mapstruct-kotlin:mapstruct-kotlin:${versions["mapstruct"]}")
     compile("org.mapstruct:mapstruct:${versions["mapstruct"]}")
     kapt("org.mapstruct:mapstruct-processor:${versions["mapstruct"]}")
+    kapt("com.github.pozo.mapstruct-kotlin:mapstruct-kotlin-processor:${versions["mapstruct"]}")
 
     compile("org.springframework.boot:spring-boot-configuration-processor")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
