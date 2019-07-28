@@ -15,7 +15,7 @@ import java.util.UUID
 @KotlinBuilder
 data class User(
         @Id
-        val id: String = UUID.randomUUID().toString(),
+        val id: String? = UUID.randomUUID().toString(),
 
         @Field("username")
         val username: String,
